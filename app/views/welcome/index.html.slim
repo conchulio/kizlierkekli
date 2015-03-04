@@ -1,0 +1,19 @@
+/ .page-header
+/   h1
+/     = I18n.t 'welcome.index.heading'
+/ p
+/   = I18n.t 'welcome.index.first_p'
+
+.container-fluid
+  .row
+    .col-xs-1
+    .col-xs-5
+      .input-group
+        span.input-group-btn
+          button.btn.btn-default#btn-geolocation type="button" title=(I18n.t("welcome.index.search.geolocation"))
+            span.glyphicon.glyphicon-screenshot area-hidden="true"
+        input.form-control placeholder=(I18n.t("welcome.index.search.placeholder")) type="text" /
+        span.input-group-btn
+          button.btn.btn-default#btn-search-offers type="button"
+            span.glyphicon.glyphicon-search area-hidden="true"
+    .col-xs-6
