@@ -1,0 +1,74 @@
+.page-header
+  = link_to apartments_path, :class => 'btn btn-default' do 
+    span.glyphicon.glyphicon-list-alt
+    |  Back 
+  = link_to edit_apartment_path(@apartment), :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-pencil
+    |  Edit 
+  h1
+    | Show apartment
+dl.dl-horizontal
+  dt
+    | Title:
+  dd
+    = @apartment.title
+  dt
+    | Description:
+  dd
+    = @apartment.description
+  dt
+    | Cost:
+  dd
+    = @apartment.cost
+  dt
+    | Deposit:
+  dd
+    = @apartment.deposit
+  dt
+    | Currency:
+  dd
+    = @apartment.currency
+  dt
+    | User:
+  dd
+    = @apartment.user
+  dt
+    | Males:
+  dd
+    = @apartment.males
+  dt
+    | Females:
+  dd
+    = @apartment.females
+  dt
+    | Address:
+  dd
+    = @apartment.address
+  dt
+    | Lat:
+  dd
+    = @apartment.lat
+  dt
+    | Lng:
+  dd
+    = @apartment.lng
+  dt
+    | Created at:
+  dd
+    = @apartment.created_at
+  dt
+    | From:
+  dd
+    = @apartment.from
+  dt
+    | Until:
+  dd
+    = @apartment.until
+  dt
+    | Phone:
+  dd
+    = @apartment.phone
+  dt
+    | Male or female:
+  dd
+    = @apartment.male_or_female

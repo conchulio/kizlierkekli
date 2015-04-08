@@ -1,0 +1,87 @@
+.page-header
+  = link_to new_apartment_path, :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New Apartment
+  h1
+    | Listing apartments
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Title
+        th
+          | Description
+        th
+          | Cost
+        th
+          | Deposit
+        th
+          | Currency
+        th
+          | User
+        th
+          | Males
+        th
+          | Females
+        th
+          | Address
+        th
+          | Lat
+        th
+          | Lng
+        th
+          | Created at
+        th
+          | From
+        th
+          | Until
+        th
+          | Phone
+        th
+          | Male or female
+        th
+        th
+        th
+    tbody
+      - @apartments.each do | apartment |
+        tr
+          td
+            = apartment.title
+          td
+            = apartment.description
+          td
+            = apartment.cost
+          td
+            = apartment.deposit
+          td
+            = apartment.currency
+          td
+            = apartment.user
+          td
+            = apartment.males
+          td
+            = apartment.females
+          td
+            = apartment.address
+          td
+            = apartment.lat
+          td
+            = apartment.lng
+          td
+            = apartment.created_at
+          td
+            = apartment.from
+          td
+            = apartment.until
+          td
+            = apartment.phone
+          td
+            = apartment.male_or_female
+          td
+            = link_to 'Show', apartment
+          td
+            = link_to 'Edit', edit_apartment_path(apartment) 
+          td
+            = link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' } 

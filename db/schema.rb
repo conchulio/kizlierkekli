@@ -11,10 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407224050) do
+ActiveRecord::Schema.define(version: 20150408162216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "apartments", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.decimal  "cost"
+    t.decimal  "deposit"
+    t.string   "currency"
+    t.integer  "user_id"
+    t.integer  "males"
+    t.integer  "females"
+    t.string   "address"
+    t.float    "lat"
+    t.float    "lng"
+    t.datetime "created_at",     null: false
+    t.date     "from"
+    t.date     "until"
+    t.string   "phone"
+    t.string   "male_or_female"
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "apartments", ["user_id"], name: "index_apartments_on_user_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.string   "provider"
@@ -25,6 +47,14 @@ ActiveRecord::Schema.define(version: 20150407224050) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
+  create_table "pg_search_documents", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "searchable_id"
+    t.string   "searchable_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                          null: false
@@ -43,10 +73,12 @@ ActiveRecord::Schema.define(version: 20150407224050) do
     t.string   "uid"
     t.string   "name"
     t.string   "image"
+    t.string   "phone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "apartments", "users"
   add_foreign_key "identities", "users"
 end

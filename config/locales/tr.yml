@@ -27,6 +27,7 @@ tr:
       search:
         geolocation: "Turkish for: Click here and center map at your position"
         placeholder: "placeholder, turkish"
+      new_ad: "new"
   application:
     project_name: "kizlierkekli"
     home: "Turkish text for 'home'"

@@ -1,0 +1,79 @@
+= form_for(@apartment, :html => { :class => "form-horizontal", :role => "form" }) do |f|
+  - if @apartment.errors.any?
+    .alert.alert-danger.alert-dismissable role="alert"
+      button.close type="button" data-dismiss="alert"
+        span aria-hidden="true"
+          | &times;
+        span.sr-only
+          | Close
+      h4= "#{pluralize(@apartment.errors.count,"error")} prohibited this apartment from being saved:"
+      ul
+        - @apartment.errors.full_messages.each do |msg|
+          li= msg
+  .form-group
+    = f.label :title, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :title, :class => "form-control"
+  .form-group
+    = f.label :description, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_area :description, :class => "form-control"
+  .form-group
+    = f.label :cost, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :cost, :class => "form-control"
+  .form-group
+    = f.label :deposit, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :deposit, :class => "form-control"
+  .form-group
+    = f.label :currency, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :currency, :class => "form-control"
+  .form-group
+    = f.label :user, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :user, :class => "form-control"
+  .form-group
+    = f.label :males, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :males, :class => "form-control"
+  .form-group
+    = f.label :females, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.number_field :females, :class => "form-control"
+  .form-group
+    = f.label :address, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :address, :class => "form-control"
+  .form-group
+    = f.label :lat, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :lat, :class => "form-control"
+  .form-group
+    = f.label :lng, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :lng, :class => "form-control"
+  .form-group
+    = f.label :created_at, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.datetime_select :created_at, :class => "form-control"
+  .form-group
+    = f.label :from, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.date_select :from, :class => "form-control"
+  .form-group
+    = f.label :until, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.date_select :until, :class => "form-control"
+  .form-group
+    = f.label :phone, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :phone, :class => "form-control"
+  .form-group
+    = f.label :male_or_female, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.text_field :male_or_female, :class => "form-control"
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit :class => "btn btn-primary"
