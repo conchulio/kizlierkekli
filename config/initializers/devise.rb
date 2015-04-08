@@ -260,4 +260,6 @@ Devise.setup do |config|
   # omniauth stuff
   config.omniauth :facebook, "848598035182396", "87d9c8f26ace3fb4d92324b6a2572653"
   config.omniauth :google_oauth2, "871026194817-mitpgrjcdo9lier3jjt9r40puqqh3v6c.apps.googleusercontent.com", "so7T2R4W_B3UIZkqDzx0TL16", {}
+  config.omniauth :twitter, "IpU50CLeS5CdzUo0C4yvKuvTx", "rbtXfjslAKibxEJv11QvkB9eVhEqdLIF4JnoYK3bxQ6yUdZNmZ"
+  # config.omniauth :twitter, "1143200712-t0aeaeMP1Hjoe7kyoOQsZntI6yS4qx8AYzPUnMN", "5qCjl2ktBSv3j4YejAqqU37ZyuUK6s6cviS83sGbpdMg3"
 end

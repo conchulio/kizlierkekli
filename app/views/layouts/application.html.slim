@@ -26,11 +26,11 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to(I18n.t("application.project_name"), "#", :class => "navbar-brand")
+          = link_to(I18n.t("application.project_name"), "/", :class => "navbar-brand")
         #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li.active
-              a href="#"
+              a href="/"
                 = I18n.t("application.home")
             li
               a href="#about"
@@ -38,15 +38,27 @@ html
             li
               a href="#contact"
                 = I18n.t("application.contact")
-          ul.nav.navbar-nav.navbar-right
-            li
-              a href="#user_status"
+            - if user_signed_in?
+              p class="navbar-text"
+                |&#160;
+                = image_tag current_user.image, size: "20x20"
+                |&#160;&#160;
+                strong
+                  = current_user.name
+              li
+                = link_to('Sign out', destroy_user_session_path, :method => :delete)
+            - else
+              p class="navbar-text" 
+                |&#160;
                 span class="glyphicon glyphicon-user" aria-hidden="true"
-                / = I18n.t("application.user_status")
-            li
-              = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
-            li
-              = link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
+                |&#160;&#160;
+                strong anonymous user
+              li
+                = link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook)
+              li
+                = link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2)
+              li
+                = link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter)
     - if is_active? 'welcome', 'index'
       = render 'partials/map'
     .container
