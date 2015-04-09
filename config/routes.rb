@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :apartments
+  authenticate :user do
+    resources :apartments, only: [:new, :create, :edit, :update, :destroy]
+  end
+  resources :apartments, only: [:index, :show]
 
   devise_for :users, :controllers => {
     omniauth_callbacks: "users/omniauth_callbacks",
-    registrations: "users/registrations"
+    registrations: "users/registrations",
+    sessions: "users/sessions"
     }
   # For cancelling facebook sign up
   # devise_scope :user do

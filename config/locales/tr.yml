@@ -28,8 +28,31 @@ tr:
         geolocation: "Turkish for: Click here and center map at your position"
         placeholder: "placeholder, turkish"
       new_ad: "new"
+  apartments:
+    male_or_female:
+      - "Both"
+      - "Only males"
+      - "Only females"
   application:
     project_name: "kizlierkekli"
     home: "Turkish text for 'home'"
     about: "Turkish for 'about'"
     contact: "Turkish for 'contact'"
+  date:
+    order:
+      - "year"
+      - "month"
+      - "day"
+    month_names:
+      - "J"
+      - "F"
+      - "M"
+      - "A"
+      - "M"
+      - "J"
+      - "J"
+      - "A"
+      - "S"
+      - "O"
+      - "N"
+      - "D"

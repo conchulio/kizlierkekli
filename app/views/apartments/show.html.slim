@@ -31,7 +31,7 @@ dl.dl-horizontal
   dt
     | User:
   dd
-    = @apartment.user
+    = @apartment.user.name
   dt
     | Males:
   dd
@@ -45,14 +45,6 @@ dl.dl-horizontal
   dd
     = @apartment.address
   dt
-    | Lat:
-  dd
-    = @apartment.lat
-  dt
-    | Lng:
-  dd
-    = @apartment.lng
-  dt
     | Created at:
   dd
     = @apartment.created_at
@@ -64,10 +56,6 @@ dl.dl-horizontal
     | Until:
   dd
     = @apartment.until
-  dt
-    | Phone:
-  dd
-    = @apartment.phone
   dt
     | Male or female:
   dd

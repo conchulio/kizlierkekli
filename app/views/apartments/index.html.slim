@@ -28,17 +28,11 @@
         th
           | Address
         th
-          | Lat
-        th
-          | Lng
-        th
           | Created at
         th
           | From
         th
           | Until
-        th
-          | Phone
         th
           | Male or female
         th
@@ -58,7 +52,7 @@
           td
             = apartment.currency
           td
-            = apartment.user
+            = apartment.user.name
           td
             = apartment.males
           td
@@ -66,17 +60,11 @@
           td
             = apartment.address
           td
-            = apartment.lat
-          td
-            = apartment.lng
-          td
             = apartment.created_at
           td
             = apartment.from
           td
             = apartment.until
-          td
-            = apartment.phone
           td
             = apartment.male_or_female
           td
