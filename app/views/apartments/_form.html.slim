@@ -19,6 +19,10 @@
     .col-sm-10
       = f.text_area :description, :class => "form-control"
   .form-group
+    = f.label :currency, :class => "col-sm-2 control-label"
+    .col-sm-10
+      = f.select(:currency, currencies(), {}, {:class => "form-control"})
+  .form-group
     = f.label :cost, :class => "col-sm-2 control-label"
     .col-sm-10
       = f.text_field :cost, :class => "form-control"
@@ -49,7 +53,7 @@
   .form-group
     = f.label :male_or_female, :class => "col-sm-2 control-label"
     .col-sm-10
-      = f.select(:male_or_female, I18n.t('apartments.male_or_female'), {}, {:class => "form-control"})
+      = f.select(:male_or_female, I18n.t('apartments.male_or_female').zip([0,1,2]), {}, {:class => "form-control"})
 
   .form-group
     .col-sm-offset-2.col-sm-10

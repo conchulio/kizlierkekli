@@ -7,6 +7,15 @@ class ApartmentsController < ApplicationController
     @apartments = Apartment.all
   end
 
+  def index_within_boundaries
+    @apartments = Apartment.where('
+      latitude >= :lat1 AND latitude <= :lat2 AND
+      longitude >= :lng1 AND longitude <= :lng2', 
+      {lat1: params[:lat1], lat2: params[:lat2], lng1: params[:lng1], lng2: params[:lng2]})
+
+    render json: @apartments
+  end
+
   # GET /apartments/1
   # GET /apartments/1.json
   def show

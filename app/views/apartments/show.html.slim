@@ -20,13 +20,13 @@ dl.dl-horizontal
     | Cost:
   dd
     = @apartment.cost
+    |&nbsp;
+    = @apartment.currency
   dt
     | Deposit:
   dd
     = @apartment.deposit
-  dt
-    | Currency:
-  dd
+    |&nbsp;
     = @apartment.currency
   dt
     | User:
@@ -59,4 +59,4 @@ dl.dl-horizontal
   dt
     | Male or female:
   dd
-    = @apartment.male_or_female
+    = get_names_from_number(@apartment.male_or_female)

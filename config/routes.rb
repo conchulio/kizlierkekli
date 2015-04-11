@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   authenticate :user do
     resources :apartments, only: [:new, :create, :edit, :update, :destroy]
   end
+
+  get 'apartments/index_within_boundaries' => 'apartments#index_within_boundaries', as: :index_within_boundaries
   resources :apartments, only: [:index, :show]
 
   devise_for :users, :controllers => {
