@@ -1,0 +1,14 @@
+b
+  = link_to truncate(@apartment.title, length: 25), controller: 'apartments', action: 'show', id: @apartment
+/ br
+/ = truncate(@apartment.description)
+br
+= get_sexes @apartment.males, @apartment.females
+br
+b 
+  = I18n.t('apartments.price')
+  |:
+|&nbsp;
+= @apartment.cost
+|&nbsp;
+= @apartment.currency

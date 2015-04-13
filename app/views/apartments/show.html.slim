@@ -33,13 +33,9 @@ dl.dl-horizontal
   dd
     = @apartment.user.name
   dt
-    | Males:
+    | Males/Females:
   dd
-    = @apartment.males
-  dt
-    | Females:
-  dd
-    = @apartment.females
+    = get_sexes @apartment.males, @apartment.females
   dt
     | Address:
   dd

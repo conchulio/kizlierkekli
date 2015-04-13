@@ -46,7 +46,8 @@ function handlerForSearch(event) {
             if (window.infowindow !== null)
               window.infowindow.close();
             window.infowindow = new google.maps.InfoWindow({
-              content: infowindowContent
+              content: infowindowContent,
+              maxWidth: 500
             });
             window.infowindow.open(handler.map.serviceObject,marker.serviceObject);
           });

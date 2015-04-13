@@ -20,9 +20,7 @@
         th
           | User
         th
-          | Males
-        th
-          | Females
+          | Males/Females
         th
           | Address
         th
@@ -54,9 +52,7 @@
           td
             = apartment.user.name
           td
-            = apartment.males
-          td
-            = apartment.females
+            = get_sexes apartment.males, apartment.females
           td
             = apartment.address
           td

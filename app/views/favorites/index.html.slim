@@ -1,0 +1,27 @@
+.page-header
+  = link_to new_favorite_path, :class => 'btn btn-primary' do 
+    span.glyphicon.glyphicon-plus
+    |  New Favorite
+  h1
+    | Listing favorites
+
+.table-responsive
+  table.table.table-striped.table-bordered.table-hover
+    thead
+      tr
+        th
+          | Comment
+        th
+        th
+        th
+    tbody
+      - @favorites.each do | favorite |
+        tr
+          td
+            = favorite.comment
+          td
+            = link_to 'Show', favorite
+          td
+            = link_to 'Edit', edit_favorite_path(favorite) 
+          td
+            = link_to 'Destroy', favorite, method: :delete, data: { confirm: 'Are you sure?' } 
