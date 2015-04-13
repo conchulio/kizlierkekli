@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+
   authenticate :user do
     resources :apartments, only: [:new, :create, :edit, :update, :destroy]
+    resources :favorites
   end
 
   get 'apartments/index_within_boundaries' => 'apartments#index_within_boundaries', as: :index_within_boundaries
@@ -16,13 +18,12 @@ Rails.application.routes.draw do
   #   get 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   # end
 
-  get 'welcome/index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+  get ':controller(/:action(/:id))'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -6,14 +6,19 @@
 
 .col-xs-1
 .col-xs-5
-  .input-group
-    span.input-group-btn
-      button.btn.btn-default#btn-geolocation type="button" title=(I18n.t("welcome.index.search.geolocation"))
-        span.glyphicon.glyphicon-screenshot area-hidden="true"
-    input.form-control placeholder=(I18n.t("welcome.index.search.placeholder")) type="text" /
-    span.input-group-btn
-      button.btn.btn-default#btn-search-offers type="button"
-        span.glyphicon.glyphicon-search area-hidden="true"
+  form#search-form
+    .input-group
+      span.input-group-btn
+        button.btn.btn-default#btn-geolocation type="button" title=(I18n.t("welcome.index.search.geolocation"))
+          span.glyphicon.glyphicon-screenshot area-hidden="true"
+      input.form-control#input-search placeholder=(I18n.t("welcome.index.search.placeholder")) type="text" /
+      span.input-group-btn
+        submit.btn.btn-default#btn-search-offers type="button"
+          span.search-all
+            = I18n.t("welcome.index.search.show_all")
+          span.search-refresh
+            = I18n.t("welcome.index.search.refresh")
+          span.search-icon.glyphicon.glyphicon-search area-hidden="true"
 .col-xs-1
   = link_to(raw("<span class='glyphicon glyphicon-plus'></span>&nbsp;"+I18n.t("welcome.index.new_ad")), new_apartment_path, class: 'btn btn-default')
 .col-xs-5

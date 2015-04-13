@@ -33,13 +33,15 @@
   .form-group
     = f.label :males, :class => "col-sm-2 control-label"
     .col-sm-10
-      = f.number_field :males, :class => "form-control"
+      = f.number_field :males, :class => "form-control", min: 0
   .form-group
     = f.label :females, :class => "col-sm-2 control-label"
     .col-sm-10
-      = f.number_field :females, :class => "form-control"
+      = f.number_field :females, :class => "form-control", min: 0
   .form-group
     = f.label :address, :class => "col-sm-2 control-label"
+    span 
+      =raw I18n.t('apartments.address_hint')
     .col-sm-10
       = f.text_field :address, :class => "form-control"
   .form-group

@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150409224338) do
+ActiveRecord::Schema.define(version: 20150412211157) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "unaccent"
 
   create_table "apartments", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.decimal  "cost"
-    t.decimal  "deposit"
+    t.integer  "cost"
+    t.integer  "deposit"
     t.string   "currency"
     t.integer  "user_id"
-    t.integer  "males"
-    t.integer  "females"
+    t.integer  "males",          default: 0
+    t.integer  "females",        default: 0
     t.string   "address"
     t.float    "latitude"
     t.float    "longitude"
@@ -36,6 +37,15 @@ ActiveRecord::Schema.define(version: 20150409224338) do
   end
 
   add_index "apartments", ["user_id"], name: "index_apartments_on_user_id", using: :btree
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "apartment_id"
+    t.text    "comment"
+  end
+
+  add_index "favorites", ["apartment_id"], name: "index_favorites_on_apartment_id", using: :btree
+  add_index "favorites", ["user_id"], name: "index_favorites_on_user_id", using: :btree
 
   create_table "identities", force: :cascade do |t|
     t.string   "provider"

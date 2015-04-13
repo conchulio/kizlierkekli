@@ -3,12 +3,12 @@ class CreateApartments < ActiveRecord::Migration
     create_table :apartments do |t|
       t.string :title
       t.text :description
-      t.decimal :cost
-      t.decimal :deposit
+      t.integer :cost
+      t.integer :deposit
       t.string :currency
       t.references :user, index: true
-      t.integer :males
-      t.integer :females
+      t.integer :males, default: 0
+      t.integer :females, default: 0
       t.string :address
       t.float :lat
       t.float :lng
@@ -16,7 +16,7 @@ class CreateApartments < ActiveRecord::Migration
       t.date :from
       t.date :until
       t.string :phone
-      t.string :male_or_female
+      t.string :male_or_female, default: 0
 
       t.timestamps null: false
     end

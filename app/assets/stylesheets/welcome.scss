@@ -1,7 +1,13 @@
 #map {
-  position: absolute;
-  top: 50px;
-  left: 0;
+  background:red;
+  display: block;
+  position:absolute;
+  height:auto;
+  bottom:0;
+  top:0;
+  left:0;
+  right:0;
+  margin-top:50px;
   z-index: 0;
 }
 
@@ -9,4 +15,9 @@
   position: relative;
   z-index: 1;
   height: auto;
+}
+
+#main-container.container-fixed {
+  margin-top: 75px;
+  margin-left: 10px;
 }

@@ -19,6 +19,7 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
+### HERE SHOULD BE ALL THE TURKISH TRANSLATIONS ###
 tr:
   welcome: 
     index: 
@@ -26,18 +27,29 @@ tr:
       first_p: "Some Turkish text as well"
       search:
         geolocation: "Turkish for: Click here and center map at your position"
-        placeholder: "placeholder, turkish"
+        placeholder: "Type here to search"
+        show_all: "Get all"
+        refresh: "Refresh"
       new_ad: "new"
   apartments:
+    price: "Price"
     male_or_female:
       - "Both"
       - "Only males"
       - "Only females"
+    nobody_lives_here: "Currently this flat is empty."
+    address_hint: "Example: <b>13 Some street, Istanbul, Turkey</b>"
+  # favorites: "Favorites"
   application:
     project_name: "kizlierkekli"
-    home: "Turkish text for 'home'"
-    about: "Turkish for 'about'"
-    contact: "Turkish for 'contact'"
+    home: "Home"
+    about: "About"
+    contact: "Contact"
+    favorites: "Favorites"
+    sign_in: "Sign in"
+    sign_in_facebook: "Sign in with Facebook"
+    sign_in_google: "Sign in with Google"
+    sign_in_twitter: "Sign in with Twitter"
   date:
     order:
       - "year"

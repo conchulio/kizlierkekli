@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 
-  has_many :apartments
+  has_many :apartments, dependent: :destroy
+
+  has_many :favorites, dependent: :destroy
+  has_many :apartments, through: :favorites, dependent: :destroy
 
   TEMP_EMAIL_PREFIX = 'change@me'
   TEMP_EMAIL_REGEX = /\Achange@me/
