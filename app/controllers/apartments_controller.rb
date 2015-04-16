@@ -7,7 +7,7 @@ class ApartmentsController < ApplicationController
     @apartments = Apartment.all
   end
 
-  def index_within_boundaries
+  def index_within_boundaries 
     @apartments = Apartment.where('
         latitude >= :lat1 AND latitude <= :lat2 AND
         longitude >= :lng1 AND longitude <= :lng2', 
@@ -22,12 +22,15 @@ class ApartmentsController < ApplicationController
     end
 
     # Only show the 100 most relevant entries
-    render json: @apartments.limit(100)
+    render json: @apartments.limit(100), only: [:id, :latitude, :longitude]
   end
 
   # GET /apartments/1()
   # GET /apartments/1.json
   def show
+    @apartment = Apartment.find(params[:id])
+    @favorite = Favorite.new
+    @is_favorite = Favorite.exists?(user_id: current_user, apartment_id: @apartment)
   end
 
   def infowindow

@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   # GET /favorites
   # GET /favorites.json
   def index
-    @favorites = Favorite.all
+    @favorites = Favorite.where('user_id = ?', current_user.id)
   end
 
   # GET /favorites/1
@@ -24,7 +24,13 @@ class FavoritesController < ApplicationController
   # POST /favorites
   # POST /favorites.json
   def create
-    @favorite = Favorite.new(favorite_params)
+    modified_params = favorite_params
+    modified_params[:user_id] = current_user.id
+
+    if Favorite.exists?(user_id: current_user.id, apartment_id: favorite_params[:apartment_id])
+      render status: :conflict, nothing: true
+    end
+    @favorite = Favorite.new(modified_params)
 
     respond_to do |format|
       if @favorite.save
@@ -61,6 +67,12 @@ class FavoritesController < ApplicationController
     end
   end
 
+  def destroy_without_id
+    @favorite = Favorite.where("user_id = ? AND apartment_id = ?", current_user.id, favorite_params[:apartment_id].to_i).first
+    @favorite.destroy
+    render nothing: true
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_favorite
@@ -69,6 +81,6 @@ class FavoritesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def favorite_params
-      params.require(:favorite).permit(:comment)
+      params.require(:favorite).permit(:comment, :user_id, :apartment_id)
     end
 end

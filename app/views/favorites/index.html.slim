@@ -1,7 +1,7 @@
 .page-header
-  = link_to new_favorite_path, :class => 'btn btn-primary' do 
-    span.glyphicon.glyphicon-plus
-    |  New Favorite
+  / = link_to new_favorite_path, :class => 'btn btn-primary' do 
+  /   span.glyphicon.glyphicon-plus
+  /   |  New Favorite
   h1
     | Listing favorites
 
@@ -10,18 +10,15 @@
     thead
       tr
         th
-          | Comment
-        th
-        th
+          = I18n.t('apartments.apartment')
         th
     tbody
       - @favorites.each do | favorite |
         tr
           td
-            = favorite.comment
+            = link_to(favorite.apartment.title, controller: 'apartments', action: 'show', id: favorite.apartment.id)
           td
-            = link_to 'Show', favorite
-          td
-            = link_to 'Edit', edit_favorite_path(favorite) 
-          td
-            = link_to 'Destroy', favorite, method: :delete, data: { confirm: 'Are you sure?' } 
+            = link_to I18n.t('destroy'), favorite, method: :delete, data: { confirm: 'Are you sure?' } 
+        tr
+          td colspan='2'
+            = favorite.apartment.description

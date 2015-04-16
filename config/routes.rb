@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  delete 'favorites/destroy_without_id', controller: 'favorites', action: 'destroy_without_id'
   authenticate :user do
     resources :apartments, only: [:new, :create, :edit, :update, :destroy]
     resources :favorites
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
+
   get ':controller(/:action(/:id))'
 
   # Example of regular route:

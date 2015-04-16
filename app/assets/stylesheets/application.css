@@ -24,3 +24,20 @@ body, html {
 .navbar .navbar-text {
   /*padding-left: 10px;*/
 }
+
+.favorite {
+  background-color: transparent;
+  border: none;
+  background:none!important;
+  border:none; 
+  padding:0!important;
+  font: inherit;
+}
+
+.favorite-full {
+  color: yellow;
+}
+
+.form-invisibile {
+  display: inline-block;
+}

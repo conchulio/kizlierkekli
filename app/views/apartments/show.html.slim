@@ -7,6 +7,36 @@
     |  Edit 
   h1
     | Show apartment
+    - if user_signed_in?
+      |&nbsp;
+      / IMPORTANT: On success hide this form and show the other one
+      - if !@is_favorite
+        - hideAdd = ''
+        - hideRemove = 'hidden'
+      - else
+        - hideAdd = 'hidden'
+        - hideRemove = ''
+      = form_for(@favorite,\
+          url: {controller: 'favorites', action: 'create'},\
+          :html => {\
+            class: "form-favorite form-invisibile form-add-favorite #{hideAdd}",\
+            role: "form"},\
+          remote: true,\
+          data: {type: 'text'}\
+          ) do |f|
+        = f.hidden_field :apartment_id, value: @apartment.id
+        = f.submit class: "favorite favorite-empty", value: "☆"
+      = form_for(@favorite,\
+          url: {controller: 'favorites', action: 'destroy_without_id'},\
+          method: 'delete',\
+          :html => {\
+            class: "form-favorite form-invisibile form-remove-favorite #{hideRemove}",\
+            role: "form"},\
+          remote: true,\
+          data: {type: 'text'}\
+          ) do |f|
+        = f.hidden_field :apartment_id, value: @apartment.id
+        = f.submit class: "favorite favorite-full", value: "★"
 dl.dl-horizontal
   dt
     | Title:

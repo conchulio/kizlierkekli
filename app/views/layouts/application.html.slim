@@ -20,7 +20,7 @@ html
     - if is_active? 'welcome', 'index'
       - classForNav = 'navbar-fixed-top'
     - else 
-      - classForNav = 'navbar'
+      - classForNav = 'navbar-top'
     nav.navbar.navbar-inverse class="#{classForNav}" role="navigation"
       .container
         .navbar-header
@@ -30,8 +30,8 @@ html
             span.icon-bar
             span.icon-bar
             span.icon-bar
-          = link_to(I18n.t("application.project_name"), "/", class: "navbar-brand", data: {no_turbolink: true})
-        #navbar.collapse.navbar-collapse.navbar-fixed-top
+          = link_to(I18n.t("application.project_name"), "/", class: "navbar-brand")
+        #navbar.collapse.navbar-collapse
           ul.nav.navbar-nav
             li#welcome-about-menu
               = link_to I18n.t("application.about"), controller: 'welcome', action: 'about'
@@ -45,10 +45,10 @@ html
                 strong
                   = current_user.name
               li#favorites-index-menu
-                = link_to(raw(\
-                  '<span class="glyphicon glyphicon-star" aria-hidden="true"></span>'+\
-                  '&nbsp;&nbsp;'+\
-                  I18n.t("application.favorites")), favorites_path)
+                = link_to favorites_path do
+                  span class="glyphicon glyphicon-star" aria-hidden="true"
+                  |&nbsp;&nbsp;
+                  = I18n.t("application.favorites")
               li#registrations-edit-menu
                 = link_to('Edit profile', edit_user_registration_path)
               li

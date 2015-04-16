@@ -21,8 +21,9 @@
 
 ### HERE SHOULD BE ALL THE TURKISH TRANSLATIONS ###
 tr:
-  welcome: 
-    index: 
+  destroy: 'remove'
+  welcome:
+    index:
       heading: "Some Turkish text here"
       first_p: "Some Turkish text as well"
       search:
@@ -30,8 +31,9 @@ tr:
         placeholder: "Type here to search"
         show_all: "Get all"
         refresh: "Refresh"
-      new_ad: "new"
+      new_ad: "new" 
   apartments:
+    apartment: "Apartment in Turkish"
     price: "Price"
     male_or_female:
       - "Both"
